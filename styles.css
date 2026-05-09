@@ -1,0 +1,307 @@
+﻿:root {
+  --yellow: #ffd21f;
+  --yellow-hot: #ffb800;
+  --teal: #35f2d0;
+  --blue: #2879ff;
+  --black: #050505;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--white);
+  background:
+    linear-gradient(135deg, rgba(5, 16, 22, 0.78), rgba(6, 4, 16, 0.88)),
+    radial-gradient(circle at 20% 15%, rgba(53, 242, 208, 0.28), transparent 32%),
+    radial-gradient(circle at 82% 78%, rgba(40, 121, 255, 0.3), transparent 36%),
+    linear-gradient(135deg, #061a21, #111018 48%, #06101c);
+  overflow-x: hidden;
+}
+
+body.is-hungary {
+  background:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.66)),
+    url("https://raw.githubusercontent.com/NexivoidOfficial/ingyenrobux/refs/heads/main/elemek/hatter.jpg") center / cover fixed no-repeat;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.5) 78%);
+  background-size: 100% 4px, 100% 100%;
+  opacity: 0.85;
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+
+.claim-window {
+  position: relative;
+  width: min(92vw, 430px);
+  min-height: 270px;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 18px;
+  padding: 42px 30px;
+  overflow: hidden;
+  text-align: center;
+  background:
+    linear-gradient(145deg, rgba(53, 242, 208, 0.18), transparent 32%),
+    linear-gradient(180deg, rgba(15, 25, 32, 0.96), rgba(4, 6, 12, 0.94));
+  border: 1px solid rgba(53, 242, 208, 0.42);
+  border-radius: 28px;
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.72),
+    0 0 42px rgba(53, 242, 208, 0.22),
+    0 0 0 8px rgba(40, 121, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -18px 32px rgba(40, 121, 255, 0.08);
+  animation: floatIn 700ms ease-out both, panelPulse 3.8s ease-in-out infinite;
+}
+
+body.is-hungary .claim-window {
+  background:
+    linear-gradient(145deg, rgba(255, 210, 31, 0.16), transparent 32%),
+    linear-gradient(180deg, rgba(21, 21, 21, 0.96), rgba(0, 0, 0, 0.94));
+  border-color: rgba(255, 210, 31, 0.42);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.72),
+    0 0 42px rgba(255, 210, 31, 0.22),
+    0 0 0 8px rgba(255, 210, 31, 0.055),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -18px 32px rgba(255, 184, 0, 0.07);
+}
+
+.claim-window::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(53, 242, 208, 0.26);
+  box-shadow: inset 0 0 24px rgba(40, 121, 255, 0.12);
+  pointer-events: none;
+}
+
+body.is-hungary .claim-window::after {
+  border-color: rgba(255, 210, 31, 0.26);
+  box-shadow: inset 0 0 24px rgba(255, 210, 31, 0.08);
+}
+
+.shine {
+  position: absolute;
+  top: 0;
+  left: 28px;
+  right: 28px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(53, 242, 208, 0.82), transparent);
+  box-shadow: 0 0 18px rgba(53, 242, 208, 0.58);
+  animation: rimGlow 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+body.is-hungary .shine {
+  background: linear-gradient(90deg, transparent, rgba(255, 210, 31, 0.8), transparent);
+  box-shadow: 0 0 18px rgba(255, 210, 31, 0.56);
+}
+
+h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: clamp(2.4rem, 9vw, 4rem);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-shadow:
+    0 4px 0 rgba(0, 0, 0, 0.6),
+    0 0 24px rgba(255, 255, 255, 0.28);
+}
+
+.claim-button {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 230px);
+  min-height: 58px;
+  border: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #031010;
+  background: linear-gradient(180deg, #a9fff0, var(--teal) 48%, var(--blue));
+  box-shadow:
+    0 12px 0 #1245a8,
+    0 22px 36px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  font-size: 1.18rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+body.is-hungary .claim-button {
+  color: #090909;
+  background: linear-gradient(180deg, #ffe86a, var(--yellow) 48%, var(--yellow-hot));
+  box-shadow:
+    0 12px 0 #a86f00,
+    0 22px 36px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.claim-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent 18%, rgba(255, 255, 255, 0.5), transparent 42%);
+  transform: translateX(-120%);
+  transition: transform 420ms ease;
+}
+
+.claim-button:hover {
+  transform: translateY(-3px) scale(1.03);
+  filter: saturate(1.12) brightness(1.04);
+  box-shadow:
+    0 15px 0 #1245a8,
+    0 28px 44px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+body.is-hungary .claim-button:hover {
+  box-shadow:
+    0 15px 0 #a86f00,
+    0 28px 44px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.claim-button:hover::before {
+  transform: translateX(120%);
+}
+
+.claim-button:active {
+  transform: translateY(7px) scale(0.99);
+  box-shadow:
+    0 5px 0 #1245a8,
+    0 13px 24px rgba(0, 0, 0, 0.46),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+body.is-hungary .claim-button:active {
+  box-shadow:
+    0 5px 0 #a86f00,
+    0 13px 24px rgba(0, 0, 0, 0.46),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.claim-button:focus-visible {
+  outline: 4px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 5px;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes rimGlow {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scaleX(0.68);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes panelPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 30px 90px rgba(0, 0, 0, 0.72),
+      0 0 36px rgba(53, 242, 208, 0.17),
+      0 0 0 8px rgba(40, 121, 255, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -18px 32px rgba(40, 121, 255, 0.08);
+  }
+
+  50% {
+    box-shadow:
+      0 34px 100px rgba(0, 0, 0, 0.78),
+      0 0 58px rgba(53, 242, 208, 0.32),
+      0 0 0 8px rgba(40, 121, 255, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      inset 0 -18px 34px rgba(40, 121, 255, 0.12);
+  }
+}
+
+@keyframes hungaryPanelPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 30px 90px rgba(0, 0, 0, 0.72),
+      0 0 36px rgba(255, 210, 31, 0.17),
+      0 0 0 8px rgba(255, 210, 31, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -18px 32px rgba(255, 184, 0, 0.07);
+  }
+
+  50% {
+    box-shadow:
+      0 34px 100px rgba(0, 0, 0, 0.78),
+      0 0 58px rgba(255, 210, 31, 0.32),
+      0 0 0 8px rgba(255, 210, 31, 0.075),
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      inset 0 -18px 34px rgba(255, 184, 0, 0.1);
+  }
+}
+
+@media (max-width: 420px) {
+  .page-shell {
+    padding: 18px;
+  }
+
+  .claim-window {
+    min-height: 245px;
+    padding: 34px 22px;
+    border-radius: 24px;
+  }
+
+  .claim-button {
+    min-height: 54px;
+    border-radius: 14px;
+  }
+}
+
+
+
